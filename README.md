@@ -28,4 +28,4 @@ A high-performance, atmospheric portfolio platform built with **Next.js 15**. Th
 
 ---
 **Author**: Akshay Kumar Kotarya  
-**Live Site**: [portfolio-2026.vercel.app](portfolio-website-six-mu-22.vercel.app)
+**Live Site**: [https://portfolio-website-six-mu-22.vercel.app/](https://portfolio-website-six-mu-22.vercel.app/)
