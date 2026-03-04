@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Akshay Kumar Kotarya - Portfolio & Interactive Atmosphere
 
-## Getting Started
+## 🚀 Project Overview
+A high-performance, atmospheric portfolio platform built with **Next.js 15**. The project features a dynamic global weather-sync system, real-time geolocation, and a specialized **Google-themed Search UI** (`/google`) designed for creative recruitment and cold mailing.
 
-First, run the development server:
+## 🛠️ Tech Stack
+-   **Framework**: Next.js 15 (App Router architecture)
+-   **Language**: TypeScript (Type-safe component logic)
+-   **Styling**: Tailwind CSS (Leveraging custom design tokens for glassmorphism and dynamic gradients)
+-   **Icons**: Lucide React
+-   **Interactivity**: React Hooks (`useState`, `useCallback`, `useEffect`) for state management and DOM effects.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌐 API Integrations (Technical Specifications)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| API Name | Purpose | Cost / Tier |
+| :--- | :--- | :--- |
+| **Open-Meteo Weather** | Fetches temperature, weather codes (rain, snow, clouds), and wind speed. | **Free** (Open-source, no key required) |
+| **Open-Meteo Geocoding** | Converts city strings into Lat/Lon coordinates for the city search feature. | **Free** |
+| **EmailJS** | Handles contact form submissions directly from the browser to SMTP. | **Free Tier** |
+| **Browser Geolocation** | Native API used to detect user coordinates for automatic "Atmosphere Sync". | **Native** (No cost) |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎯 Interview Talking Points (Q&A)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. "How does the dynamic background work?"
+The site uses a custom `useWeather` hook that fetches data from Open-Meteo. This state is passed to a `WeatherBackground` component which maps weather codes (e.g., Code 61 for "Rain") to specific CSS gradients and particle overlays. This demonstrates **conditional rendering** and **state-driven UI**.
 
-## Learn More
+### 2. "Why use Next.js for a portfolio?"
+Next.js provides **Server-Side Rendering (SSR)** for better SEO (critical for a portfolio) and **Image Optimization**. The App Router's file-based routing also allowed for a clean separation between the main portfolio and the `/google` sub-experience.
 
-To learn more about Next.js, take a look at the following resources:
+### 3. "How is the performance optimized?"
+-   **Debounced Search**: Geocoding requests are only triggered when the user pauses typing.
+-   **Lightweight Assets**: Using Lucide SVGs instead of heavy image icon libraries.
+-   **Efficient State**: Used `useCallback` to memoize API fetch functions, preventing unnecessary re-renders during weather updates.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. "Tell me about the Google UI implementation."
+The `/google` page is a high-fidelity replica built with pure Tailwind. It uses **state-based filtering** to toggle between "Journey", "Projects", and "CP" views without page reloads, showcasing an understanding of UX and efficient React state management.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Key Directory Structure
+-   `/app/google`: The specialized Search UI experience.
+-   `/app/hooks`: Core logic for weather, geolocation, and time calculations.
+-   `/app/components`: Reusable UI elements (Weather particles, navigation, etc.).
+-   `/public`: Static assets including the profile image and custom fonts.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+**Author**: Akshay Kumar Kotarya  
+**Live Site**: [portfolio-2026.vercel.app](https://portfolio-2026.vercel.app)
